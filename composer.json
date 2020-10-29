@@ -1,5 +1,6 @@
 {
-    "name": "young/union",
+    "name": "young/http_client",
+    "license": "MIT",
     "require": {
         "guzzlehttp/guzzle": "^6.3|^7.0",
         "adbario/php-dot-notation": "^2.2",
