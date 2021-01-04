@@ -18,7 +18,7 @@ class Gateway extends Request
         );
     }
 
-    public function send(string $method, $uri, $params = [], $requestAsync = false)
+    public function send(string $method, $uri, array $params = [], $requestAsync = false)
     {
         $this->method = $method;
         $this->api_uri = $uri; 
@@ -34,6 +34,6 @@ class Gateway extends Request
 
     protected function resolveParameter() 
     {
-        $this->options = array_merge($this->options, (array) $this->api_params);
+        $this->options = array_merge($this->options, json_decode(json_encode($this->api_params), true) ?: [] );
     }
 }
