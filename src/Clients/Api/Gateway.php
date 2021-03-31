@@ -9,6 +9,8 @@ class Gateway extends Request
 {
     protected $app;
 
+    protected $api_params = [];
+
     public function __construct(Container $app)
     {
         $this->app = $app;
@@ -34,6 +36,6 @@ class Gateway extends Request
 
     protected function resolveParameter() 
     {
-        $this->options = array_merge($this->options, json_decode(json_encode($this->api_params), true) ?: [] );
+        $this->options = array_merge($this->options, $this->api_params ?: [] );
     }
 }
